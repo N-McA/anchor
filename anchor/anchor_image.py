@@ -1,3 +1,4 @@
+from __future__ import print_function
 from . import anchor_base
 import numpy as np
 import sklearn
@@ -37,7 +38,7 @@ class AnchorImage(object):
                     out = []
                     for i, path in enumerate(paths):
                         if i % 100 == 0:
-                            print i
+                            print(i)
                         out.append(transform_img(path))
                     return out
                 transform_img_fn = transform_imgs
@@ -62,7 +63,7 @@ class AnchorImage(object):
         n_features = len(features)
 
         true_label = np.argmax(classifier_fn(np.expand_dims(image, 0))[0])
-        print 'True pred', true_label
+        print('True pred', true_label)
 
         def lime_sample_fn(num_samples, batch_size=50):
             # data = np.random.randint(0, 2, num_samples * n_features).reshape(
